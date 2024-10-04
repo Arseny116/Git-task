@@ -41,7 +41,11 @@ begin
   Date_to_Year(day1, month1, day2, month2);
   Println();
   Print($'В {year} году  :{Col_day(year)} дней');
+  Println();
   var (year1, year2) := ReadInteger2('Введите два года ');
   Assert((year1 > 0) and (year2 > 0));
-  Print(Sum_day_Year(year1, year2));
+  Println(Sum_day_Year(year1, year2));
+  var hour:=ReadInteger('Введите Часы ');
+  Assert(hour>0);
+  Print($'{3600*hour}Секунд в {hour} часах ');
 end.
