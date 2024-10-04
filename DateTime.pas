@@ -24,13 +24,24 @@ begin
    Result := 365;
 end;
 
+function Sum_day_Year(year1, year2: Integer): Integer;
+begin
+  for var i := year1 to year2 do
+  begin
+    Result += Col_day(i);
+  end;
+end;
+
 begin
   var year := ReadInteger('Введите год');
   var (day1, month1, day2, month2) := ReadInteger4('Введите две даты');
   Assert(year > 0);
-  Assert((day1 in 1..31)and(day2 in 1..31) and(month1 in 1..12) and (month2 in 1..12));
+  Assert((day1 in 1..31) and (day2 in 1..31) and (month1 in 1..12) and (month2 in 1..12));
   Println($'Высокосный ли год ?:{Leap_Year(year)}');
   Date_to_Year(day1, month1, day2, month2);
   Println();
-  Print($'В {year} году  :{Col_day(year)} дней')
+  Print($'В {year} году  :{Col_day(year)} дней');
+  var (year1, year2) := ReadInteger2('Введите два года ');
+  Assert((year1 > 0) and (year2 > 0));
+  Print(Sum_day_Year(year1, year2));
 end.
